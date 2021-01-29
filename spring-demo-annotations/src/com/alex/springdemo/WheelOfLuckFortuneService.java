@@ -11,6 +11,10 @@ public class WheelOfLuckFortuneService implements FortuneService {
 	@Value("${fortune.array}")
 	private String[] fortunes;
 	
+	public WheelOfLuckFortuneService() {
+		
+	}
+	
 	@Override
 	public String getFortune() {
 		Random random = new Random();
