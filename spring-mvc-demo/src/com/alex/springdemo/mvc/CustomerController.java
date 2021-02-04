@@ -15,6 +15,10 @@ import jakarta.validation.Valid;
 @RequestMapping("/customer")
 public class CustomerController {
 	
+	//add an InitBinder ... to covert trim input strings
+	// remove leading and trailing whitespace
+	// resolve issue for our validation
+	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		
@@ -35,6 +39,7 @@ public class CustomerController {
 			@Valid @ModelAttribute("customer") Customer theCustomer,
 			BindingResult theBindingResult) {
 		System.out.println("Last name: |" + theCustomer.getLastName() + "|");
+		System.out.println("Binding result: " +theBindingResult);
 		if(theBindingResult.hasErrors()) {
 			return "customer-form";
 		}
